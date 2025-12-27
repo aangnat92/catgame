@@ -28,6 +28,11 @@ app.get('/health', (req, res) => {
     res.json({ status: 'ok', message: '服务器运行正常' });
 });
 
+// 捕获所有未定义的路由并返回 404
+app.use((req, res) => {
+    res.status(404).json({ error: 'Not Found' });
+});
+
 // 启动服务器
 async function startServer() {
     try {
