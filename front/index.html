@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小猫选择游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>小猫选择游戏</h1>
+        
+        <div class="game-status">
+            <div class="status-item">
+                <span class="status-label">蒸蚌:</span>
+                <span id="correct-count" class="status-value">0</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">错误次数:</span>
+                <span id="wrong-count" class="status-value">0</span>
+            </div>
+        </div>
+
+        <div class="instruction-section">
+            <button class="instruction-btn" id="instruction-tissue" data-instruction="选择纸巾">
+                🧻 纸巾
+            </button>
+            <button class="instruction-btn" id="instruction-carrot" data-instruction="选择胡萝卜">
+                🥕 胡萝卜
+            </button>
+        </div>
+
+        <div class="current-instruction" id="current-instruction">
+            等待设置指令...
+        </div>
+
+        <div class="game-area">
+            <div class="cat-container" id="cat-container">
+                <div class="cat" id="cat">
+                    <div class="cat-head">
+                        <div class="cat-face">🐱</div>
+                        <div class="cat-fur" id="cat-fur"></div>
+                    </div>
+                    <div class="arrow-container" id="arrow-container">
+                        <div class="arrow" id="arrow">➡️</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="choices">
+                <div class="choice-item" id="choice-tissue" data-choice="tissue">
+                    <div class="choice-icon">🧻</div>
+                    <div class="choice-label">纸巾</div>
+                </div>
+                <div class="choice-item" id="choice-carrot" data-choice="carrot">
+                    <div class="choice-icon">🥕</div>
+                    <div class="choice-label">胡萝卜</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-area" id="feedback-area">
+            <div class="rewards-container">
+                <div class="rewards-label">奖励区域（拖拽蒸蚌给小猫）：</div>
+                <div class="rewards" id="rewards"></div>
+            </div>
+        </div>
+
+        <div class="game-result" id="game-result"></div>
+
+        <div class="controls">
+            <button id="start-game-btn">开始新游戏</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
