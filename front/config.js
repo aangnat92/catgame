@@ -1,6 +1,12 @@
 // 在前端代码中初始化 Supabase 客户端
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
+// 更新后端 API 的基础 URL
+const API_BASE_URL = 'https://catgame-six.vercel.app/api';
+
+// 导出 API_BASE_URL 供其他文件使用
+export { API_BASE_URL };
+
 const supabaseUrl = 'https://rohmkjxkisrisvvwtxct.supabase.co'
 const supabaseAnonKey = 'rohmkjxkisrisvvwtxct'
 
