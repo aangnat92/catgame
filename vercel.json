@@ -2,19 +2,25 @@
     "version": 2,
     "builds": [
       {
-        "src": "server/*.js",
+        "src": "server/index.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "front/**",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "/server/server.js"
+        "dest": "server/index.js"
       },
       {
         "src": "/(.*)",
-        "dest": "/front/$1",
-        "continue": true
+        "dest": "front/$1"
       }
-    ]
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
   }
