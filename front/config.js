@@ -2,7 +2,7 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
 // 更新后端 API 的基础 URL
-const API_BASE_URL = 'https://catgame-six.vercel.app/api';
+const API_BASE_URL = 'https://new-catgame-url.vercel.app/api';
 
 // 导出 API_BASE_URL 供其他文件使用
 export { API_BASE_URL };
