@@ -1,9 +1,44 @@
-// API 配置
-// 本地开发：使用 'http://localhost:3000/api'
-// 手机访问：使用 'http://192.168.3.60:3000/api'（替换为你的电脑IP）
-// 生产环境：使用你的服务器地址，例如 'https://your-domain.com/api'
+// 在前端代码中初始化 Supabase 客户端
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
 
-const API_BASE_URL = 'https://catgame-six.vercel.app/';  // 本地开发模式
-// const API_BASE_URL = 'http://192.168.3.60:3000/api';  // 手机访问模式（取消注释这行，注释掉上一行）
-// const API_BASE_URL = 'https://your-domain.com/api';  // 生产环境（部署时使用）
+const supabaseUrl = 'https://rohmkjxkisrisvvwtxct.supabase.co'
+const supabaseAnonKey = 'rohmkjxkisrisvvwtxct'
 
+const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+// 示例：保存游戏分数
+async function saveScore(score, playerName) {
+  try {
+    const { data, error } = await supabase
+      .from('game_scores')
+      .insert([
+        { 
+          player_name: playerName, 
+          score: score,
+          created_at: new Date()
+        }
+      ])
+    
+    if (error) throw error
+    console.log('分数保存成功:', data)
+  } catch (error) {
+    console.error('保存失败:', error.message)
+  }
+}
+
+// 示例：获取高分榜
+async function getHighScores(limit = 10) {
+  try {
+    const { data, error } = await supabase
+      .from('game_scores')
+      .select('*')
+      .order('score', { ascending: false })
+      .limit(limit)
+    
+    if (error) throw error
+    return data
+  } catch (error) {
+    console.error('获取失败:', error.message)
+    return []
+  }
+}
