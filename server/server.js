@@ -11,6 +11,7 @@ app.use(cors({
     origin: [
         'http://localhost:8000',
         'http://localhost:3000',
+        'https://catgame-front.vercel.app', // 前端的 Vercel 域名
         /\.github\.io$/,  // GitHub Pages
         /\.vercel\.app$/,  // Vercel
         /\.netlify\.app$/  // Netlify
